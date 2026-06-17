@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery-4.0.0.min.js 연결 -->
+    <script src="/fronts/jQuery/jquery-4.0.0.min.js"></script>
+    <!-- fonts.googleapis.com 연결 - icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=kid_star" />
+    <title>starlight layout</title>
+    <style>
+        * { padding: 0; margin: 0; box-sizing: content-box; }
+
+        html, body, html>body>div { width: 100%; height: 100%; }
+        html>body>div>* { border: 1px solid; text-align: center; }
+
+        html>body>div>div>footer { border-top: 1px solid green; }
+    </style>
+    <script>
+        /** 
+         * function _fnOpenShadowPage(elementId, uri, mode="open") {
+         *     mode=mode==null?"open":mode; // IE모드 에러 방지
+         *
+         *     $.get(uri, function(html) {
+         *         var element = document.getElementById(elementId);
+         *         var shadow = element.attachShadow({
+         *             mode: mode
+         *         });
+         * 
+         *         shadow.innerHTML = `
+         *             ${html}
+         *         `;
+         *     });
+         * }
+         */
+
+        function _fnLoadPage(uri) {
+            $("#main-contents-box").empty();
+            $("#main-contents-box").load(uri);
+        }
+        $(document).ready(function() {
+            /* main content 영역 불러오기 */
+            /**
+             * ver 1 - jQuery load : 스타일 영향 받음
+             * $("div.main-contents-box").load("./main-content.html");
+             */
+
+             /**
+             * ver 2 - shadow Dom : load와 비슷하게 화면을 불러 올 수 록 느려짐
+             * _fnOpenShadowPage("main-contents-box", "./main-content.html");
+             */
+
+            _fnLoadPage("./main-content.html");
+        });
+    </script>
+</head>
+<body>
+    <div style="display: flex;">
+        <header style="width: min(14%, 173px); height: 100%; position: sticky; border-right: 2px solid #000;">
+            <nav>
+                header and menu
+                <div class="header-logo-box">
+                    <!-- <span class="material-symbols-outlined">kid_star</span> -->
+                </div>
+                <div class="header-menu-box">
+
+                </div>
+                <div class="header-user-box">
+                    
+                </div>
+            </nav>
+        </header>
+        <div class="main-contents" style="flex: 1; height: 100%; overflow: hidden auto">
+            <main style="min-height: calc(100% - 57px);">
+                <!-- main content -->
+                 <div id="main-contents-box" style="background-color: gray;"></div>
+            </main>
+            <footer style="height: 57px;">
+                footer
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
