@@ -34,23 +34,26 @@
          * }
          */
 
-        function _fnLoadPage(uri) {
-            $("#main-contents-box").empty();
-            $("#main-contents-box").load(uri);
+        function _fnLoadPage(element, uri) {
+            $(element).empty().load(uri);
         }
+        
         $(document).ready(function() {
             /* main content 영역 불러오기 */
             /**
              * ver 1 - jQuery load : 스타일 영향 받음
-             * $("div.main-contents-box").load("./main-content.html");
+             * $("div.main-contents-box").load("./main-content-layout.html");
              */
 
              /**
              * ver 2 - shadow Dom : load와 비슷하게 화면을 불러 올 수 록 느려짐
-             * _fnOpenShadowPage("main-contents-box", "./main-content.html");
+             * _fnOpenShadowPage("main-contents-box", "./main-content-layout.html");
              */
 
-            _fnLoadPage("./main-content.html");
+            /**
+             * ver 3 - jQuery empty load : 
+             */
+            _fnLoadPage("#main-contents-box", "./web-novel.html");
         });
     </script>
 </head>

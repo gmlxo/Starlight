@@ -31,5 +31,12 @@
             </footer>
         </div>
     </div>
+    <script>
+        // 현재 이 페이지 미사용으로 인한 리다이렉트
+        $(document).ready(function() {
+            location.href = location.pathname.replace("-layout", "");
+            alert("미사용으로 인해 리다이렉트");
+        })
+    </script>
 </body>
 </html>
