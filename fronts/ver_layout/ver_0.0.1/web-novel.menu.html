@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Novel ver0.0.1 layout</title>
+    <style>
+        #main-contents-box > h2 {
+            text-align: left;
+            padding: 1.4% 0 0.3% 5.1%;
+            display: flex; 
+            align-items: center
+        }
+        #main-contents-box > div#web-novel-menu > ul.web-novel-tab {
+            display: flex;
+            list-style: none;
+            /* border-top: 1px solid #000; */
+            border-bottom: 1px solid #000;
+            height: 34px;
+        }
+
+        #main-contents-box > div#web-novel-menu > ul.web-novel-tab > li.web-novel-tag {
+            width: 73px;
+            height: 32px;
+            line-height: 34px;
+            color: #484848;
+        }
+        
+        #main-contents-box > div#web-novel-menu > ul.web-novel-tab > li.web-novel-tag:hover {
+            border-bottom: 3px solid #A48DF5;
+            color: #A48DF5;
+        }
+
+        #main-contents-box > div#web-novel-menu > ul.web-novel-tab > li.web-novel-tag.selected-tab,
+        #main-contents-box > div#web-novel-menu > ul.web-novel-tab > li.web-novel-tag:active {
+            border-bottom: 3px solid #6C4FF6;
+            font-weight: 550;
+            color: #6C4FF6;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            
+        });
+    </script>
+</head>
+<body class="main-contents-box">
+    <h2 class="set-icon-parent">
+        <span class="material-symbols-outlined">book_2</span>
+        웹소설
+    </h2>
+    <div id="web-novel-menu">
+        <ul class="web-novel-tab">
+            <!-- 요일별 -->
+            <li class="web-novel-tag">전체</li>
+            <li class="web-novel-tag">일</li>
+            <li class="web-novel-tag">월</li>
+            <li class="web-novel-tag">화</li>
+            <li class="web-novel-tag">수</li>
+            <li class="web-novel-tag">목</li>
+            <li class="web-novel-tag">금</li>
+            <li class="web-novel-tag">토</li>
+        </ul>
+    </div>
+</body>
+</html>

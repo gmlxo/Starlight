@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- jQuery-4.0.0.min.js 연결 -->
     <script src="/fronts/jQuery/jquery-4.0.0.min.js"></script>
+    <script src="/fronts/jQuery/jquery-ui.min.js"></script>
     <!-- fonts.googleapis.com 연결 - icon -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=kid_star" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>starlight layout</title>
     <style>
         * { padding: 0; margin: 0; box-sizing: content-box; }
@@ -15,8 +16,21 @@
         html>body>div>* { border: 1px solid; text-align: center; }
 
         html>body>div>div>footer { border-top: 1px solid green; }
+
+        #main-contents-box { user-select: none; }
+       
+        /* .set-icon-parent { position: relative; } */
+        /* .set-icon-parent > span.material-symbols-outlined { position: absolute; }  */
     </style>
     <script>
+
+        function _$fnCheckingNull(p) {
+            if(p===null||p===undefined||p.toLowerCase==="null") {
+                return true;
+            }
+            return false
+        }
+
         /** 
          * function _fnOpenShadowPage(elementId, uri, mode="open") {
          *     mode=mode==null?"open":mode; // IE모드 에러 방지
@@ -34,8 +48,9 @@
          * }
          */
 
-        function _fnLoadPage(element, uri) {
-            $(element).empty().load(uri);
+        function _$fnLoadPage(element, uri, func=null) {
+            func=func==null?function() {}:func;
+            $(element).empty().load(uri, func);
         }
         
         $(document).ready(function() {
@@ -53,7 +68,7 @@
             /**
              * ver 3 - jQuery empty load : 
              */
-            _fnLoadPage("#main-contents-box", "./web-novel.html");
+            _$fnLoadPage("#main-contents-box", "./ver_0.0.1/web-novel.menu.html");
         });
     </script>
 </head>
@@ -73,10 +88,10 @@
                 </div>
             </nav>
         </header>
-        <div class="main-contents" style="flex: 1; height: 100%; overflow: hidden auto">
+        <div style="flex: 1; height: 100%; overflow: hidden auto">
             <main style="min-height: calc(100% - 57px);">
                 <!-- main content -->
-                 <div id="main-contents-box" style="background-color: gray;"></div>
+                <div id="main-contents-box"></div>
             </main>
             <footer style="height: 57px;">
                 footer
